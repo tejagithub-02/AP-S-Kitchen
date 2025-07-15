@@ -25,8 +25,10 @@ const Footer = () => {
 
           {/* Phone */}
           <div className="footer-phone">
-            <p>📞 +91 7022947654</p>
-          </div>
+  <p>
+    📞 <a href="tel:+917022947654" style={{ textDecoration: 'none', color: 'inherit' }}>+91 7022947654</a>
+  </p>
+</div>
         </div>
 
         {/* Social Links */}

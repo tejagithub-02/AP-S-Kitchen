@@ -1,0 +1,281 @@
+.sliding-container {
+    background: linear-gradient(180deg, #fff, #fff7f7);
+    padding: 80px 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: green;
+    margin-bottom: 50px;
+    position: relative;
+    animation: slideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, red, gold);
+    margin: 10px auto;
+    border-radius: 2px;
+    animation: expand 1.5s ease-in-out;
+  }
+  
+  .scroll-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 28px;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+  }
+  
+ 
+  
+  
+  
+  
+  .product-slide-card {
+    flex: 0 0 auto;
+    width: 260px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(183, 28, 28, 0.15);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    scroll-snap-align: center;
+  }
+  
+  .product-slide-card:hover {
+    transform: scale(1.06) translateY(-10px);
+    box-shadow: 0 12px 30px rgba(183, 28, 28, 0.25);
+  }
+  
+  .animate-card {
+    animation: slideUp 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  }
+  
+  .product-slide-card:hover .slide-image {
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slide-title {
+    font-size: 1.3rem;
+    color: #b71c1c;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+  
+  .product-slide-card:hover .slide-title {
+    color: #d32f2f;
+  }
+  
+  .rating-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .rating {
+    background: linear-gradient(90deg, #b71c1c, #ff5252);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .rating:hover {
+    transform: scale(1.1);
+  }
+  
+  .reviews {
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .slide-price {
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+  }
+  
+  .slide-price .old {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 8px;
+    font-size: 0.95rem;
+  }
+  
+  .slide-price .new {
+    color: #b71c1c;
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+  
+  .slide-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #b71c1c, #ff5252);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slide-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease;
+  }
+  
+  .slide-button:hover::before {
+    left: 0;
+  }
+  
+  .slide-button:hover {
+    background: linear-gradient(90deg, #d32f2f, #ff6f61);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(183, 28, 28, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes expand {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80px;
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .product-slide-card {
+      width: 220px;
+    }
+    .slide-image {
+      height: 160px;
+    }
+    .section-title {
+      font-size: 2.2rem;
+    }
+    .slide-title {
+      font-size: 1.1rem;
+    }
+    .slide-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-slide-card {
+      width: 180px;
+    }
+    .slide-image {
+      height: 130px;
+    }
+    .section-title {
+      font-size: 1.8rem;
+    }
+  }.heading {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #b71c1c;
+    margin: 40px 0 20px;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    animation: glowTitle 1s ease-in-out forwards;
+  }
+  
+  /* Optional underline effect */
+  .heading::after {
+    content: '';
+    display: block;
+    margin: 10px auto 0;
+    width: 60px;
+    height: 4px;
+    background: #d32f2f;
+    border-radius: 4px;
+    animation: underlineSlide 1s ease forwards;
+  }
+  
+  /* Glow animation */
+  @keyframes glowTitle {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+      text-shadow: none;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      text-shadow: 0 0 10px rgba(183, 28, 28, 0.4), 0 0 20px rgba(255, 60, 60, 0.3);
+    }
+  }
+  
+  /* Underline animation */
+  @keyframes underlineSlide {
+    from {
+      width: 0;
+    }
+    to {
+      width: 60px;
+    }
+  }
+  

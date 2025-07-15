@@ -1,0 +1,277 @@
+/* AboutUs.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #e63946;
+  --accent: #f4a261;
+  --neutral: #f1faee;
+  --dark: green;
+  --light: #a8dadc;
+}
+
+.about-us {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, var(--neutral) 0%, #fff 100%);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.section-wrapper {
+  margin-bottom: 80px;
+}
+
+.center-heading {
+  text-align: center;
+}
+
+.center-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 30px;
+  position: relative;
+  font-family: 'Playfair Display', serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+}
+
+.section-content {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #555;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.highlight:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Story & Mission Cards */
+.story-card, .mission-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.story-card {
+  border-top: 4px solid var(--primary);
+}
+
+.mission-card {
+  border-top: 4px solid var(--accent);
+}
+
+.story-card h3, .mission-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.card-highlight {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 15px;
+  background: rgba(244, 162, 97, 0.2);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Values Cards */
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-top: 4px solid var(--light);
+  text-align: center;
+}
+
+.value-card.expanded {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(230,57,70,0.1) 0%, rgba(244,162,97,0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.value-card:hover::before {
+  opacity: 1;
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--dark);
+  font-family: 'Playfair Display', serif;
+}
+
+.value-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.hidden-content {
+  overflow: hidden;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+/* Decorative elements */
+.decorative-spice {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.1;
+  z-index: 1;
+  filter: sepia(100%) brightness(70%);
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.spice-1 {
+  top: 10%;
+  left: 5%;
+  animation: float 12s ease-in-out infinite, rotate 20s linear infinite;
+}
+
+.spice-2 {
+  bottom: 15%;
+  right: 5%;
+  animation: float 15s ease-in-out infinite reverse, rotate 25s linear infinite reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-us {
+    padding: 60px 20px;
+  }
+  
+  .section-heading {
+    font-size: 2.2rem;
+  }
+  
+  .section-content {
+    font-size: 1rem;
+  }
+  
+  .values-list, .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decorative-spice {
+    width: 100px;
+    height: 100px;
+  }
+}
